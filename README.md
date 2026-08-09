@@ -2,9 +2,6 @@
   <img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/main/images/Untitled.gif" width="100%" />
 </p>
 
-<p align="center">
-  <img src="your-photo.jpg" width="150" style="border-radius: 50%;" />
-</p>
 
 <h1 align="center">Hi there, I'm Het Soni 👋</h1>
 
@@ -60,13 +57,11 @@ I'm a passionate **Web Developer** who loves turning ideas into real, working pr
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=panther20006&show_icons=true&theme=radical&hide_border=true" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=panther20006&theme=radical&hide_border=true" width="48%" />
+  
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=panther20006&theme=radical&hide_border=true" width="85%" />
 </p>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=panther20006&layout=compact&theme=radical&hide_border=true" width="50%" />
-</p>
+
 
 ---
 
