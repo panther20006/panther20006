@@ -11,10 +11,10 @@
 <h3 align="center">🚀 Web Developer | Building clean, functional & user-friendly web experiences</h3>
 
 <p align="center">
-  <a href="https://linkedin.com/in/hetsoni" target="_blank">
+  <a href="https://www.linkedin.com/in/het-soni-0b6771319/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
-  <a href="mailto:youremail@example.com" target="_blank">
+  <a href="mailto:hetjsoni1383@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
   <a href="https://github.com/panther20006" target="_blank">
@@ -36,7 +36,7 @@ I'm a passionate **Web Developer** who loves turning ideas into real, working pr
 - 🌱 Currently exploring: **AI-powered apps (PANTHER-AI)**
 - 💬 Ask me about: **HTML, CSS, JavaScript, React, Python, Django**
 - ⚡ Always eager to learn new tools and frameworks
-- 📫 Reach me at: **youremail@example.com**
+- 📫 Reach me at: **hetjsoni1383@gmail.com**
 
 ---
 
@@ -91,8 +91,3 @@ A full-stack web application built using Django framework.
 
 ---
 
-<h3 align="center">💡 "Code is like humor. When you have to explain it, it's bad."</h3>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg" width="100%" />
-</p>
