@@ -84,5 +84,5 @@ A full-stack web application built using Django framework.
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=panther20006&theme=react-dark&hide_border=true" width="100%" />
 </p>
 
----
+--- hi my mane is heyt
 
