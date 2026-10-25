@@ -1,0 +1,199 @@
+name: Update 3D Contribution Calendar
+
+on:
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-3d
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Generate 3D calendar
+        uses: yoshi389111/github-profile-3d-contrib@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: panther20006
+
+      - name: Generate activity graph
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            const result = await github.graphql(`
+              query($login: String!) {
+                user(login: $login) {
+                  contributionsCollection {
+                    contributionCalendar {
+                      weeks {
+                        contributionDays {
+                          date
+                          contributionCount
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `, { login: 'panther20006' });
+
+            if (!result.user) {
+              throw new Error('GitHub user not found');
+            }
+
+            const today = new Date().toISOString().slice(0, 10);
+
+            const days = result.user.contributionsCollection
+              .contributionCalendar.weeks
+              .flatMap(week => week.contributionDays)
+              .filter(day => day.date <= today)
+              .slice(-31);
+
+            if (days.length < 2) {
+              throw new Error('Not enough calendar data');
+            }
+
+            const peak = Math.max(
+              4,
+              ...days.map(day => day.contributionCount)
+            );
+
+            const maximum = Math.ceil(peak / 4) * 4;
+
+            const total = days.reduce(
+              (sum, day) => sum + day.contributionCount,
+              0
+            );
+
+            const x = i => 60 + i * 780 / (days.length - 1);
+            const y = count => 240 - count * 150 / maximum;
+
+            const points = days.map((day, i) =>
+              `${x(i).toFixed(2)},${y(day.contributionCount).toFixed(2)}`
+            ).join(' ');
+
+            let grid = '';
+
+            for (let i = 0; i <= 4; i++) {
+              const value = maximum * i / 4;
+              const height = y(value);
+
+              grid += `
+                <line x1="60" y1="${height}"
+                  x2="840" y2="${height}"
+                  stroke="#25312c"/>
+                <text x="48" y="${height + 4}"
+                  text-anchor="end"
+                  fill="#8b949e"
+                  font-size="12">${value}</text>
+              `;
+            }
+
+            const dots = days.map((day, i) => `
+              <circle
+                cx="${x(i)}"
+                cy="${y(day.contributionCount)}"
+                r="3"
+                fill="#8fe388">
+                <title>${day.date}: ${day.contributionCount} contributions</title>
+              </circle>
+            `).join('');
+
+            const indices = [...new Set([
+              0,
+              Math.floor((days.length - 1) / 3),
+              Math.floor(2 * (days.length - 1) / 3),
+              days.length - 1
+            ])];
+
+            const labels = indices.map(i => `
+              <text x="${x(i)}" y="265"
+                text-anchor="middle"
+                fill="#8b949e"
+                font-size="11">
+                ${days[i].date.slice(5)}
+              </text>
+            `).join('');
+
+            const svg = `
+              <svg xmlns="http://www.w3.org/2000/svg"
+                width="900" height="300"
+                viewBox="0 0 900 300"
+                role="img"
+                aria-label="GitHub daily contributions">
+
+                <rect width="900" height="300"
+                  rx="14" fill="#0d1117"/>
+
+                <g font-family="Arial, sans-serif">
+                  <text x="35" y="35"
+                    fill="#8fe388"
+                    font-size="22"
+                    font-weight="bold">
+                    Het Soni's Activity
+                  </text>
+
+                  <text x="35" y="59"
+                    fill="#8b949e"
+                    font-size="13">
+                    Last ${days.length} days · ${total} contributions
+                  </text>
+
+                  ${grid}
+
+                  <polygon
+                    points="60,240 ${points} 840,240"
+                    fill="#39d353"
+                    opacity="0.12"/>
+
+                  <polyline
+                    points="${points}"
+                    fill="none"
+                    stroke="#39d353"
+                    stroke-width="3"
+                    stroke-linejoin="round"/>
+
+                  ${dots}
+                  ${labels}
+
+                  <text x="450" y="289"
+                    text-anchor="middle"
+                    fill="#8b949e"
+                    font-size="11">
+                    Date (MM-DD) · GitHub contribution calendar
+                  </text>
+                </g>
+              </svg>
+            `;
+
+            fs.mkdirSync('profile-3d-contrib', {
+              recursive: true
+            });
+
+            fs.writeFileSync(
+              'profile-3d-contrib/activity.svg',
+              svg
+            );
+
+      - name: Save both graphs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-3d-contrib/
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Update 3D calendar and activity graph"
+            git push
+          fi
