@@ -29,9 +29,9 @@
 ### 🧑‍💻 About Me
 
 I'm **Het Soni**, a Computer Science & Engineering student at
-**Indus University**, passionate about web development and computer
-vision. I enjoy building projects across the full stack—from clean
-front-end interfaces to real-time hand-gesture-controlled experiences.
+**Indus University**, passionate about web development and computer vision.
+I enjoy building projects across the full stack—from clean front-end
+interfaces to real-time hand-gesture-controlled experiences.
 
 - 🔭 Currently working on: **nexchat**
 - 🌱 Currently exploring: **AI & Computer Vision — PANTHER-AI and hand-gesture projects**
@@ -63,31 +63,46 @@ front-end interfaces to real-time hand-gesture-controlled experiences.
 
 ### 🔥 Featured Projects
 
-#### 🗨️ [nexchat](https://github.com/panther20006/nexchat)
-
-A real-time chat application built with **Flutter/Dart**—
-inspired by WhatsApp-style messaging.
-
-#### 🐍 [PANTHER-AI](https://github.com/panther20006/PANTHER-AI)
-
-An AI-powered project built with **Python**—
-exploring intelligent automation.
-
-#### 🍉 [neon-fruit-slash](https://github.com/panther20006/neon-fruit-slash)
-
-A hand-gesture-controlled fruit-slicing game.
-Slice fruits mid-air using **webcam-based hand tracking**,
-with a neon visual style.
-
-#### 🌸 [hand-flower](https://github.com/panther20006/hand-flower)
-
-A creative hand-gesture project that generates
-**flower and particle effects** on screen,
-driven by real-time hand tracking.
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>💬 nexchat</h3>
+      <p>A real-time chat application inspired by WhatsApp-style messaging.</p>
+      <p><strong>Flutter · Dart</strong></p>
+      <a href="https://github.com/panther20006/nexchat">View Repository →</a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🅿️ PANTHER-AI</h3>
+      <p>An AI-powered project exploring intelligent automation with Python.</p>
+      <p><strong>Python · Artificial Intelligence</strong></p>
+      <a href="https://github.com/panther20006/PANTHER-AI">View Repository →</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🍉 neon-fruit-slash</h3>
+      <p>Slice fruits mid-air using webcam-based hand tracking, with a neon visual style.</p>
+      <p><strong>Computer Vision · Hand Tracking</strong></p>
+      <a href="https://github.com/panther20006/neon-fruit-slash">View Repository →</a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🌸 hand-flower</h3>
+      <p>Creative flower and particle effects driven by real-time hand gestures.</p>
+      <p><strong>Hand Tracking · Visual Effects</strong></p>
+      <a href="https://github.com/panther20006/hand-flower">View Repository →</a>
+    </td>
+  </tr>
+</table>
 
 ---
 
+### 🏙️ My Contributions in 3D
 
+<p align="center">
+  <img src="./profile-3d-contrib/profile-night-green.svg" width="100%" alt="My 3D contribution calendar" />
+</p>
+
+---
 
 ### 📊 GitHub Stats
 
@@ -100,7 +115,7 @@ driven by real-time hand tracking.
 ### 📈 Activity Graph
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=panther20006&theme=react-dark&hide_border=true" width="100%" alt="GitHub activity graph" />
+  <img src="./profile-3d-contrib/activity.svg" width="100%" alt="My daily contributions over the last 31 days" />
 </p>
 
 ---
